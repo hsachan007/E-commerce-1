@@ -154,13 +154,16 @@ const MainShipping = () => {
               Zip
             </label>
             <input
-            onChange={ e =>{
-              setisTouched(true);
-              if(e.target.value.trim().length === 6){
-                setisTouched(false);
-              setZip(e.target.value)}
-        }
-        }
+              onChange={(e) => {
+                setisTouched(true);
+                if (e.target.value.trim().length === 6) {
+                  setisTouched(false);
+                  setZip(e.target.value);
+                } else {
+                  setisTouched(true);
+                  setZip("");
+                }
+              }}
               type="text"
               className="form"
               id="inputZip"
@@ -173,12 +176,16 @@ const MainShipping = () => {
             <label htmlFor="inputCity" className="form-label">
               Phone Number
             </label>
-            <input
-            onChange={ e => {
-              setphoneTouched(true);
-              if(e.target.value.trim().length > 9){
-                setphoneTouched(false);
-                setPhoneNumber(e.target.value)}
+           <input
+              onChange={(e) => {
+                setphoneTouched(true);
+                if (e.target.value.trim().length === 10) {
+                  setphoneTouched(false);
+                  setPhoneNumber(e.target.value);
+                } else {
+                  setphoneTouched(true);
+                  setPhoneNumber("");
+                }
               }}
               type="text"
               className="form"
